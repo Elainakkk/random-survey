@@ -1,0 +1,23 @@
+
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>跳转中...</title>
+  <script>
+    const links = [
+      "https://vwj.vivo.xyz/Questionnaire/#/answerIndex?pId=-s-151058-thWOY1&needLogin=1",
+      "https://vwj.vivo.xyz/Questionnaire/#/answerIndex?pId=-s-151114-PjVJAv&needLogin=1"
+    ];
+
+    window.onload = function () {
+      const randomIndex = Math.floor(Math.random() * links.length);
+      window.location.href = links[randomIndex];
+    };
+  </script>
+</head>
+<body>
+  <p>正在为您随机分配问卷，请稍候...</p>
+</body>
+</html>
