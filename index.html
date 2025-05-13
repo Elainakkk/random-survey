@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="zh">
 <head>
@@ -6,14 +5,30 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>跳转中...</title>
   <script>
+    // 你要随机分配的问卷链接（可以继续加更多）
     const links = [
-      "https://vwj.vivo.xyz/Questionnaire/#/answerIndex?pId=-s-151058-thWOY1&needLogin=1",
-      "https://vwj.vivo.xyz/Questionnaire/#/answerIndex?pId=-s-151114-PjVJAv&needLogin=1"
+      "https://vwj.vivo.xyz/Questionnaire/#/answerIndex?pId=-s-151058-thWOY1&needLogin=1",  // 问卷 A
+      "https://vwj.vivo.xyz/Questionnaire/#/answerIndex?pId=-s-151114-PjVJAv&needLogin=1"   // 问卷 B
     ];
 
+    // 页面加载后执行
     window.onload = function () {
+      // 1. 随机生成一个 0 到 links.length - 1 的整数
       const randomIndex = Math.floor(Math.random() * links.length);
-      window.location.href = links[randomIndex];
+
+      // 2. 生成当前时间戳（毫秒数），用于防止浏览器缓存
+      const timestamp = Date.now();
+
+      // 3. 给链接加上时间戳参数（如果已有参数则用 &t=）
+      let link = links[randomIndex];
+      if (link.includes("?")) {
+        link += "&t=" + timestamp;
+      } else {
+        link += "?t=" + timestamp;
+      }
+
+      // 4. 跳转到拼接后的链接
+      window.location.href = link;
     };
   </script>
 </head>
